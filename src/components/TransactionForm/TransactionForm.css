@@ -1,0 +1,29 @@
+.transaction-form {
+  padding: 30px 35px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.transaction-form__input {
+  height: 30px;
+  padding: 0 10px;
+  flex: 1;
+}
+
+.transaction-form__input-desc {
+  max-width: 200px;
+}
+
+.transaction-form__input-number {
+  max-width: 130px;
+  height: 30px;
+  flex: 1;
+}
+
+.transaction-form__select {
+  max-width: 150px;
+  flex: 1;
+  height: 30px;
+  background-color: #FFF;
+}

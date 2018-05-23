@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import TransactionList from '../../components/TransactionList/TransactionList';
 import TransactionBalance from '../../components/TransactionBalance/TransactionBalance';
+import TransactionForm from '../../components/TransactionForm/TransactionForm';
 import './Transaction.css';
 
 const list = [
@@ -22,12 +23,17 @@ const list = [
 ];
 
 class TransactionContainer extends Component {
+
+  submitForm(e) {
+    e.preventDefault();
+  }
+
   render () {
     return (
       <div className="transaction">
 
         {/* Form */}
-        <div>Form</div>
+        <TransactionForm submitForm={ this.submitForm } />
 
         {/* Transactions List */}
         <TransactionList list={ list }/>
