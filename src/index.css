@@ -1,5 +1,17 @@
+html,
+body {
+  height: 100%;
+}
+
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-size: 16px;
+  font-family: 'Source Sans Pro', sans-serif;
+  background-color: #EBEBEB;
+
+  background-image: url('magnetis-silver.png');
+  background-size: auto;
+  background-repeat: no-repeat;
+  background-position: center 95%;
 }
