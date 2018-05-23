@@ -1,3 +1,13 @@
+:root {
+  --main-app-color: #3FCDCA;
+  --main-app-secondary-color: #548483;
+  --main-app-action-color: #16A0DF;
+  --main-bg-color: #EBEBEB;
+  --income-color: var(--main-app-color);
+  --expense-color: #CD3F3F;
+  --transaction-hover-color: #E2FFFF;
+}
+
 html,
 body {
   height: 100%;
@@ -8,7 +18,7 @@ body {
   padding: 0;
   font-size: 16px;
   font-family: 'Source Sans Pro', sans-serif;
-  background-color: #EBEBEB;
+  background-color: var(--main-bg-color);
 
   background-image: url('magnetis-silver.png');
   background-size: auto;

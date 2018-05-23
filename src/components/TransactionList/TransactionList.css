@@ -11,7 +11,7 @@
 }
 
 .transaction__list li:hover {
-  background-color: #E2FFFF;
+  background-color: var(--transaction-hover-color);
 }
 
 

@@ -1,5 +1,5 @@
 .btn {
-  background-color: #16A0DF;
+  background-color: var(--main-app-action-color);
   font-weight: 600;
   color: #FFF;
   border: 0 none;

@@ -1,5 +1,5 @@
 .transaction__balance {
-  background-color: #3FCDCA;
+  background-color: var(--main-app-color);
   height: 60px;
   display: flex;
   align-items: center;
