@@ -1,0 +1,27 @@
+.transaction__list {
+  list-style: none;
+  margin: 0 35px;
+  padding: 0;
+}
+
+.transaction__list li {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+}
+
+.transaction__list li:hover {
+  background-color: #E2FFFF;
+}
+
+
+.transaction__list-name {
+  display: flex;
+  flex: 1;
+}
+
+.transaction__list-value {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+}

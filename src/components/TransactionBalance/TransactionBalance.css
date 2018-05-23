@@ -1,0 +1,19 @@
+.transaction__balance {
+  background-color: #3FCDCA;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 45px;
+}
+
+.transaction__balance-name,
+.transaction__balance-value {
+  font-weight: 600px;
+  color: #FFF;
+  display: flex;
+  flex: 1;
+}
+
+.transaction__balance-value {
+  justify-content: flex-end;
+}
