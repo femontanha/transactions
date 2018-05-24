@@ -2,12 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './TransactionList.css';
 
-const renderTransactionList = (list) => {
-    const items = list.map((item) => {
+const renderTransactionList = (props) => {
+    const items = props.list.map((item, index) => {
       return (
-        <li key={ item.id }>
-          <span className="transaction__list-name">{ item.name }</span>
+        <li key={ index }>
+          <span className="transaction__list-description">{ item.description }</span>
           <span className="transaction__list-value">{ item.value }</span>
+          {/* <button onClick={ props.onDelete.bind(this, index) }>Delete</button> */}
         </li>
       );
     });
@@ -18,13 +19,14 @@ const renderTransactionList = (list) => {
 const TransactionList = (props) => {
   return (
     <ul className="transaction__list">
-      { renderTransactionList(props.list) }
+      { renderTransactionList(props) }
     </ul>
   );
 };
 
 TransactionList.propTypes = {
-  list: PropTypes.array.isRequired
+  list: PropTypes.array.isRequired,
+  onDelete: PropTypes.func
 };
 
 export default TransactionList;

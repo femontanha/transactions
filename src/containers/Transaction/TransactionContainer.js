@@ -6,41 +6,59 @@ import './Transaction.css';
 
 const list = [
   {
+    id: 0,
+    description: 'Salário',
+    type: 'income',
+    value: 1000
+  },
+  {
     id: 1,
-    name: 'Outback',
+    description: 'Netflix',
+    type: 'expense',
     value: 100
   },
   {
     id: 2,
-    name: 'Salary',
-    value: -100
-  },
-  {
-    id: 3,
-    name: 'Netflix',
-    value: -39
+    description: 'Internet',
+    type: 'expense',
+    value: 100
   },
 ];
 
 class TransactionContainer extends Component {
+  state = {
+    transactions: list
+  }
 
-  submitForm(e) {
-    e.preventDefault();
+  calculateBalance = (transactions) => {
+    return transactions.reduce((acc, item) => {
+      return acc + item.value;
+    }, 0);
+  }
+
+  onSave = (transaction) => {
+    this.setState({
+      transactions: [...this.state.transactions, transaction]
+    })
+  }
+
+  onDelete = (index) => {
+    const { transactions } = this.state;
+    const newTransaction = transactions.filter((item) => item.id !== index);
+
+    this.setState({
+      transactions: newTransaction
+    });
   }
 
   render () {
+    const { transactions } = this.state;
+
     return (
       <div className="transaction">
-
-        {/* Form */}
-        <TransactionForm submitForm={ this.submitForm } />
-
-        {/* Transactions List */}
-        <TransactionList list={ list }/>
-
-        {/* Balance */}
-        <TransactionBalance balance={ 100 } />
-
+        <TransactionForm onSave={ this.onSave } />
+        <TransactionList onDelete={ this.onDelete } list={ transactions }/>
+        <TransactionBalance balance={ this.calculateBalance(transactions) } />
       </div>
     );
   }

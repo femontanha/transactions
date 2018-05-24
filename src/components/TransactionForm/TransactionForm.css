@@ -9,6 +9,12 @@
   height: 30px;
   padding: 0 10px;
   flex: 1;
+  border: var(--form-border-color) 1px solid;
+  outline-color: var(--main-app-action-color);
+}
+
+.transaction-form__input::placeholder {
+  color: var(--form-border-color);
 }
 
 .transaction-form__input-desc {
@@ -25,5 +31,6 @@
   max-width: 150px;
   flex: 1;
   height: 30px;
+  border-color: var(--form-border-color);
   background-color: #FFF;
 }

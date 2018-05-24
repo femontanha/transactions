@@ -15,7 +15,7 @@
 }
 
 
-.transaction__list-name {
+.transaction__list-description {
   display: flex;
   flex: 1;
 }

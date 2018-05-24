@@ -6,6 +6,7 @@
   --income-color: var(--main-app-color);
   --expense-color: #CD3F3F;
   --transaction-hover-color: #E2FFFF;
+  --form-border-color:  #CCC;
 }
 
 html,

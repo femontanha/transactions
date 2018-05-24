@@ -6,6 +6,7 @@
   height: 30px;
   width: 90px;
   cursor: pointer;
+  outline-color: var(--main-app-action-color);
 }
 
 .btn:hover {
