@@ -9,7 +9,8 @@ class TransactionForm extends Component {
 
     const type = this.select.value;
     let value = parseInt(this.input_value.value, 10);
-    if (type === 'expense') value = value * -1;
+
+    if (type === 'debit') value = value * -1;
 
     const transaction = {
       description: this.input_description.value,
@@ -32,13 +33,14 @@ class TransactionForm extends Component {
           required
         />
         <select required ref={(select) => this.select = select} className="transaction-form__input transaction-form__select">
-          <option value="income">Income</option>
-          <option value="expense">Expense</option>
+          <option value="credit">Credit</option>
+          <option value="debit">Debit</option>
         </select>
         <input
           className="transaction-form__input transaction-form__input-number"
           type="number"
           placeholder="100"
+          min="1"
           ref={(input) => this.input_value = input}
           required
         />

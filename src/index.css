@@ -6,10 +6,8 @@
 
   --form-border-color:  #CCC;
 
-  --income-color: var(--main-app-color);
-  --expense-color: #CD3F3F;
-  --income-hover-color: #E2FFFF;
-  --expense-hover-color: #FFE2E2;
+  --credit-color: var(--main-app-color);
+  --debit-color: #CD3F3F;
 }
 
 html,

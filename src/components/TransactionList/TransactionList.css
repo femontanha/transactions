@@ -43,14 +43,14 @@
   text-align: center;
 }
 
-.transaction__list-badge--income {
-  border-color: var(--income-color);
-  color: var(--income-color);
+.transaction__list-badge--credit {
+  border-color: var(  --credit-color);
+  color: var(  --credit-color);
 }
 
-.transaction__list-badge--expense {
-  border-color: var(--expense-color);
-  color: var(--expense-color);
+.transaction__list-badge--debit {
+  border-color: var(--debit-color);
+  color: var(--debit-color);
 }
 
 .transaction__list-value {

@@ -5,10 +5,10 @@ import TransactionContainer from './containers/Transaction/TransactionContainer'
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <main>
         <Header />
         <TransactionContainer />
-      </div>
+      </main>
     );
   }
 }
