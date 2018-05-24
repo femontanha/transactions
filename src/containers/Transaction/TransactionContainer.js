@@ -4,30 +4,19 @@ import TransactionBalance from '../../components/TransactionBalance/TransactionB
 import TransactionForm from '../../components/TransactionForm/TransactionForm';
 import './Transaction.css';
 
-const list = [
-  {
-    id: 0,
-    description: 'Salário',
-    type: 'income',
-    value: 1000
-  },
-  {
-    id: 1,
-    description: 'Netflix',
-    type: 'expense',
-    value: 100
-  },
-  {
-    id: 2,
-    description: 'Internet',
-    type: 'expense',
-    value: 100
-  },
-];
+import base from '../../rebase';
 
 class TransactionContainer extends Component {
   state = {
-    transactions: list
+    transactions: []
+  }
+
+  componentWillMount() {
+    base.bindToState('transactions', {
+      context: this,
+      state: 'transactions',
+      asArray: true
+    });
   }
 
   calculateBalance = (transactions) => {
@@ -37,9 +26,19 @@ class TransactionContainer extends Component {
   }
 
   onSave = (transaction) => {
+    const newTransaction = [...this.state.transactions, transaction];
+
     this.setState({
-      transactions: [...this.state.transactions, transaction]
-    })
+      transactions: newTransaction
+    });
+
+    base.post('transactions', {
+      data: newTransaction,
+      context: this,
+      then: () => {
+        console.warn('Transaction Added');
+      }
+    });
   }
 
   onDelete = (index) => {
