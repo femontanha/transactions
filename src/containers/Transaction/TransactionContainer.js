@@ -8,14 +8,18 @@ import base from '../../rebase';
 
 class TransactionContainer extends Component {
   state = {
-    transactions: []
+    transactions: [],
+    isFetching: true
   }
 
   componentDidMount() {
     base.syncState('transactions', {
       context: this,
       state: 'transactions',
-      asArray: true
+      asArray: true,
+      then: () => {
+        this.setState({ isFetching: false });
+      }
     })
   }
 
@@ -57,7 +61,7 @@ class TransactionContainer extends Component {
     return (
       <div className="transaction">
         <TransactionForm onSave={ this.onSave } />
-        <TransactionList onDelete={ this.onDelete } list={ transactions }/>
+        <TransactionList isFetching={ this.state.isFetching } onDelete={ this.onDelete } list={ transactions }/>
         <TransactionBalance balance={ this.calculateBalance(transactions) } />
       </div>
     );

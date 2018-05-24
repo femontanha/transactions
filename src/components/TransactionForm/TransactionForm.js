@@ -30,6 +30,7 @@ class TransactionForm extends Component {
           type="input"
           placeholder="Add some description"
           ref={(input) => this.input_description = input}
+          maxLength="35"
           required
         />
         <select required ref={(select) => this.select = select} className="transaction-form__input transaction-form__select">
@@ -41,6 +42,7 @@ class TransactionForm extends Component {
           type="number"
           placeholder="100"
           min="1"
+          max="99999"
           ref={(input) => this.input_value = input}
           required
         />
