@@ -11,12 +11,12 @@ class TransactionContainer extends Component {
     transactions: []
   }
 
-  componentWillMount() {
-    base.bindToState('transactions', {
+  componentDidMount() {
+    base.syncState('transactions', {
       context: this,
       state: 'transactions',
       asArray: true
-    });
+    })
   }
 
   calculateBalance = (transactions) => {
@@ -36,17 +36,18 @@ class TransactionContainer extends Component {
       data: newTransaction,
       context: this,
       then: () => {
+        // TODO: Toast?
         console.warn('Transaction Added');
       }
     });
   }
 
-  onDelete = (index) => {
+  onDelete = (key) => {
     const { transactions } = this.state;
-    const newTransaction = transactions.filter((item) => item.id !== index);
+    const newTransactions = transactions.filter((item) => item.key !== key);
 
     this.setState({
-      transactions: newTransaction
+      transactions: newTransactions
     });
   }
 

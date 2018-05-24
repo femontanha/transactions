@@ -3,10 +3,13 @@
   --main-app-secondary-color: #548483;
   --main-app-action-color: #16A0DF;
   --main-bg-color: #EBEBEB;
+
+  --form-border-color:  #CCC;
+
   --income-color: var(--main-app-color);
   --expense-color: #CD3F3F;
-  --transaction-hover-color: #E2FFFF;
-  --form-border-color:  #CCC;
+  --income-hover-color: #E2FFFF;
+  --expense-hover-color: #FFE2E2;
 }
 
 html,
@@ -20,6 +23,7 @@ body {
   font-size: 16px;
   font-family: 'Source Sans Pro', sans-serif;
   background-color: var(--main-bg-color);
+  color: #555555;
 
   background-image: url('magnetis-silver.png');
   background-size: auto;
