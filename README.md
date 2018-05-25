@@ -6,10 +6,6 @@ This is a simple app that you can register your debits and credits.
 
 https://montanha-transaction.firebaseapp.com/
 
-## How it works (video)
-
-TBD
-
 ## Features
 
 - Add your debits
