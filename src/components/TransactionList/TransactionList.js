@@ -8,9 +8,9 @@ const renderTransactionList = (props) => {
     return (
       <li key={ item.key } className={ item.type }>
         <span className="transaction__list-description">{ item.description }</span>
-        <span className="transaction__list-delete" onClick={ props.onDelete.bind(this, item.key) }>delete item</span>
         <span className={`transaction__list-badge transaction__list-badge--${ item.type }`}>{ item.type }</span>
         <span className="transaction__list-value">{ item.value }</span>
+        <span className="transaction__list-delete" onClick={ props.onDelete.bind(this, item.key) }>X</span>
       </li>
     );
   });

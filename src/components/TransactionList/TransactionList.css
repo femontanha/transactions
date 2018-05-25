@@ -28,19 +28,19 @@
   background-color: #F7F7F7;
 }
 
-.transaction__list li:hover .transaction__list-delete {
-  opacity: 1;
-}
-
 .transaction__list-description {
-  display: flex;
-  flex: 1;
+  width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-right: 15px;
 }
 
 .transaction__list-badge {
   border: 1px solid;
   font-size: 12px;
-  width: 80px;
+  width: 15%;
+  min-width: 60px;
   text-align: center;
 }
 
@@ -55,21 +55,21 @@
 }
 
 .transaction__list-value {
-  width: 100px;
-  display: flex;
-  justify-content: flex-end;
+  width: 10%;
+  padding-left: 15px;
+  text-align: right;
+  min-width: 50px;
 }
 
 .transaction__list-delete {
-  background-color: var(--main-app-action-color);
-  color: #FFF;
+  background-color: var(--main-bg-color);
+
   padding: 1px 8px;
   font-weight: 600;
   text-align: right;
-  margin-right: 30px;
+  margin-left: 15px;
   font-size: 12px;
   cursor: pointer;
-  opacity: 0;
   transition: all .3s ease-in-out;
 }
 

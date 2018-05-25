@@ -34,8 +34,8 @@ class TransactionForm extends Component {
           required
         />
         <select required ref={(select) => this.select = select} className="transaction-form__input transaction-form__select">
-          <option value="credit">Credit</option>
           <option value="debit">Debit</option>
+          <option value="credit">Credit</option>
         </select>
         <input
           className="transaction-form__input transaction-form__input-number"

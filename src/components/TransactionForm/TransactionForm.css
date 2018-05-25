@@ -3,12 +3,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .transaction-form__input {
   height: 30px;
   padding: 0 10px;
-  flex: 1;
   border: var(--form-border-color) 1px solid;
   outline-color: var(--main-app-action-color);
 }
@@ -17,20 +17,31 @@
   color: var(--form-border-color);
 }
 
-.transaction-form__input-desc {
-  max-width: 200px;
-}
-
 .transaction-form__input-number {
   max-width: 130px;
   height: 30px;
-  flex: 1;
+  flex: 1 0 auto;
+  margin: 0 15px 0;
 }
 
 .transaction-form__select {
   max-width: 150px;
-  flex: 1;
   height: 30px;
   border-color: var(--form-border-color);
   background-color: #FFF;
+  flex: 1 0 auto;
+}
+
+@media (max-width: 730px) {
+  .transaction-form__input-desc {
+    width: 100%;
+    margin-bottom: 15px;
+  }
+}
+
+@media (min-width: 731px) {
+  .transaction-form__input-desc {
+    max-width: 200px;
+    flex: 1 0 auto;
+  }
 }
