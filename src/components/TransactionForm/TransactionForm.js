@@ -8,7 +8,7 @@ class TransactionForm extends Component {
     e.preventDefault();
 
     const type = this.select.value;
-    let value = parseInt(this.input_value.value, 10);
+    let value = this.input_value.value;
 
     if (type === 'debit') value = value * -1;
 
@@ -20,6 +20,10 @@ class TransactionForm extends Component {
 
     this.props.onSave(transaction);
     this.form.reset();
+  }
+
+  componentDidMount() {
+    this.input_description.focus();
   }
 
   render() {
@@ -41,8 +45,9 @@ class TransactionForm extends Component {
           className="transaction-form__input transaction-form__input-number"
           type="number"
           placeholder="100"
-          min="1"
-          max="99999"
+          min="0.01"
+          max="9999.99"
+          step="0.01"
           ref={(input) => this.input_value = input}
           required
         />
