@@ -11,8 +11,8 @@ const TransactionBalance = (props) => {
   );
 };
 
-TransactionBalance.propTypes = {
-  balance: PropTypes.number.isRequired
-};
+// TransactionBalance.propTypes = {
+//   balance: PropTypes.number.isRequired
+// };
 
 export default TransactionBalance;

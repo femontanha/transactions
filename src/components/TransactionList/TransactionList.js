@@ -23,6 +23,7 @@ const renderTransactionEmpty = () => {
 }
 
 const TransactionList = (props) => {
+  console.log(props)
   const transactionListCSS = classNames(
     'transaction__list-container',
     { 'is-loading': props.isFetching }

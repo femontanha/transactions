@@ -1,50 +1,27 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { addTransaction, fetchTransactions, orderByCredit, orderByDebit } from '../../store/actions';
+
 import TransactionList from '../../components/TransactionList/TransactionList';
 import TransactionBalance from '../../components/TransactionBalance/TransactionBalance';
 import TransactionForm from '../../components/TransactionForm/TransactionForm';
 import './Transaction.css';
 
-import base from '../../rebase';
-
 class TransactionContainer extends Component {
-  state = {
-    transactions: [],
-    isFetching: true
-  }
-
   componentDidMount() {
-    base.syncState('transactions', {
-      context: this,
-      state: 'transactions',
-      asArray: true,
-      then: () => {
-        this.setState({ isFetching: false });
-      }
-    })
+    this.props.fetchTransactions();
   }
 
-  calculateBalance = (transactions) => {
-    return transactions.reduce((acc, item) => {
-      return acc + item.value;
-    }, 0);
-  }
-
-  onSave = (transaction) => {
-    const newTransaction = [...this.state.transactions, transaction];
-
-    this.setState({
-      transactions: newTransaction
-    });
-
-    base.post('transactions', {
-      data: newTransaction,
-      context: this,
-      then: () => {
-        // TODO: Toast?
-        console.warn('Transaction Added');
-      }
-    });
-  }
+  // onSave = (transaction) => {
+  //   base.post('transactions', {
+  //     data: newTransaction,
+  //     context: this,
+  //     then: () => {
+  //       // TODO: Toast?
+  //       console.warn('Transaction Added');
+  //     }
+  //   });
+  // }
 
   onDelete = (key) => {
     const { transactions } = this.state;
@@ -56,16 +33,42 @@ class TransactionContainer extends Component {
   }
 
   render () {
-    const { transactions } = this.state;
+    const {
+      transactions,
+      addTransaction,
+      balance,
+      isFetching,
+      orderByCredit,
+      orderByDebit,
+    } = this.props;
 
     return (
       <div className="transaction">
-        <TransactionForm onSave={ this.onSave } />
-        <TransactionList isFetching={ this.state.isFetching } onDelete={ this.onDelete } list={ transactions }/>
-        <TransactionBalance balance={ this.calculateBalance(transactions) } />
+        <TransactionForm addTransaction={ addTransaction } />
+        <div>
+          <button onClick={ orderByCredit }>Order by: credit</button>
+          <button onClick={ orderByDebit }>Order by: debit</button>
+        </div>
+        <TransactionList isFetching={ isFetching } onDelete={ this.onDelete } list={ transactions }/>
+        <TransactionBalance balance={ balance } />
       </div>
     );
   }
 }
 
-export default TransactionContainer;
+const mapStateToProps = state => {
+  return {
+    transactions: state.transactions,
+    balance: state.balance,
+    isFetching: state.isFetching,
+  };
+};
+
+const mapDispatchToProps = {
+  addTransaction,
+  fetchTransactions,
+  orderByCredit,
+  orderByDebit,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(TransactionContainer);

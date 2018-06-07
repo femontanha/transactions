@@ -4,6 +4,10 @@ import Button from '../../components/Button/Button';
 import './TransactionForm.css';
 
 class TransactionForm extends Component {
+  componentDidMount() {
+    this.input_description.focus();
+  }
+
   handleSubmit = (e) => {
     e.preventDefault();
 
@@ -18,12 +22,8 @@ class TransactionForm extends Component {
       type
     }
 
-    this.props.onSave(transaction);
+    this.props.addTransaction(transaction);
     this.form.reset();
-  }
-
-  componentDidMount() {
-    this.input_description.focus();
   }
 
   render() {
@@ -58,7 +58,7 @@ class TransactionForm extends Component {
 }
 
 TransactionForm.propTypes = {
-  onSave: PropTypes.func.isRequired
+  addTransaction: PropTypes.func.isRequired
 };
 
 export default TransactionForm;
